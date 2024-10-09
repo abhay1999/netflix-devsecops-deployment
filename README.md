@@ -98,7 +98,7 @@ pipeline {
         stage("Docker Build Image"){
             steps{
                    
-                sh "docker build --build-arg API_KEY=2af0904de8242d48e8527eeedc3e19d9 -t netflix ."
+                sh "docker build --build-arg API_KEY=904ddf2d124c36761775947f3dd6f0fc -t netflix ."
             }
         }
         stage("TRIVY"){
@@ -113,8 +113,8 @@ pipeline {
             steps{
                 script {
                     withDockerRegistry(credentialsId: 'docker-cred', toolName: 'docker'){   
-                    sh "docker tag netflix gauris17/netflix:latest "
-                    sh "docker push gauris17/netflix:latest"
+                    sh "docker tag netflix abhayc19/netflix:latest "
+                    sh "docker push abhayc19/netflix:latest"
                     }
                 }
             }
